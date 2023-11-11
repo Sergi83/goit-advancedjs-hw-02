@@ -82,11 +82,16 @@ function handleClick() {
     reverseClock -= 1000;
 
     // add text content for spans that count time backwards (days, hours, minutes, seconds)
-    refs.days.textContent = addLeadingZero(days);
-    refs.hours.textContent = addLeadingZero(hours);
-    refs.minutes.textContent = addLeadingZero(minutes);
-    refs.seconds.textContent = addLeadingZero(seconds);
+    addTimeTextContentFormated(days, hours, minutes, seconds);
   }, 1000);
+}
+
+// add correct time data to html tags (spans)
+function addTimeTextContentFormated(days, hours, min, sec) {
+  refs.days.textContent = addLeadingZero(days);
+  refs.hours.textContent = addLeadingZero(hours);
+  refs.minutes.textContent = addLeadingZero(min);
+  refs.seconds.textContent = addLeadingZero(sec);
 }
 
 // complete time format with 0, if just one number
