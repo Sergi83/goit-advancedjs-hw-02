@@ -25,6 +25,9 @@ let timerId = null;
 // time in ms from future date till now
 let reverseClock = 0;
 
+// disable start button
+refs.startBtn.disabled = true;
+
 // iziToast library options
 const options = {
   enableTime: true,
@@ -35,7 +38,7 @@ const options = {
     //   time in ms from future date till now
     reverseClock = selectedDates[0] - Date.now();
     // if before now - show warning and block button, if future date - open button
-    if (reverseClock < 0) {
+    if (reverseClock <= 0) {
       // block start button
       refs.startBtn.disabled = true;
       //   show warning message
@@ -69,9 +72,8 @@ function handleClick() {
   // set interval for time rewriting every second
   timerId = setInterval(() => {
     if (reverseClock < 1000) {
-      // clear interval function, unblock input and button after timer less than 1 s
+      // clear interval function, unblock input after timer less than 1 s
       clearInterval(timerId);
-      refs.startBtn.disabled = false;
       refs.dateInput.disabled = false;
     }
 

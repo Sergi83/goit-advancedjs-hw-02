@@ -9,6 +9,9 @@ const body = document.querySelector('body');
 // create variable for setInterval (change/stop body bg colog)
 let timerId = null;
 
+// disabl spop button until push start button
+stopBtn.setAttribute('disabled', true);
+
 // start button activate random color changing with 1 second interval
 startBtn.addEventListener('click', () => {
   timerId = setInterval(() => {
